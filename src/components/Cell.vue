@@ -9,8 +9,8 @@ export default {
   name: "Cell",
 
   data: () => ({
-    rowId: 0,
-    colId: 0
+    // rowId: 0,
+    // colId: 0
   }),
 };
 </script>

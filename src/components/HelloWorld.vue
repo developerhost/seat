@@ -1,7 +1,7 @@
 <template>
   <v-container class="scroll">
     <v-row class="row" v-for="i in changeHeight" :key="i">
-      <Row :mathWidth="mathWidth" />
+      <Row :mathWidth="mathWidth" :rowId="i" :propRandomId="propRandomId"/>
     </v-row>
 
     <h2>条件</h2>
@@ -15,7 +15,7 @@
     </v-row>
 
     <v-row justify="center" class="pt-4">
-      <v-btn depressed color="primary"> 指名 </v-btn>
+      <v-btn depressed color="primary" @click="random"> 指名 </v-btn>
     </v-row>
   </v-container>
 </template>
@@ -33,6 +33,7 @@ export default {
     items: "",
     mathWidth: 4,
     mathHeight: 4,
+    randomId: ""
   }),
 
   computed: {
@@ -45,7 +46,17 @@ export default {
       // setter 関数
       set: function (newValue) {
         this.mathHeight = Number(newValue);
-        console.log("setHeight", this.mathHeight);
+      },
+    },
+
+    propRandomId: {
+      // `this` は vm インスタンスを指します
+      get: function () {
+        return String(this.randomId);
+      },
+      // setter 関数
+      set: function (newValue) {
+        this.randomId = String(newValue);
       },
     },
   },
@@ -53,6 +64,13 @@ export default {
     getHeight: function () {
       return Number(this.mathWidth);
     },
+
+    random: function () {
+      const rowRandom = Math.floor( Math.random() * this.mathHeight + 1 );
+      const colRandom = Math.floor( Math.random() * this.mathWidth + 1 );
+      const idRandom = rowRandom + "_" + colRandom;
+      this.randomId = idRandom
+    }
   },
 
   watch: {

@@ -3,7 +3,7 @@
       <v-col v-for="i in changeWidth"
       :key="i">
 
-      <Cell />
+      <Cell :id="rowId + '_' + i" :ref="rowId+'_'+i"/>
       </v-col>
       
     
@@ -18,6 +18,14 @@
       mathWidth: {
         type: Number,
         required: true
+      },
+      rowId: {
+        type: Number,
+        required: true
+      },
+      propRandomId: {
+        type: String,
+        required: true
       }
     },
     components: {
@@ -28,6 +36,23 @@
     data: () => ({
       items: "",
     }),
+
+    watch: {
+      propRandomId: function () {
+        
+        for(let i = 0; i < this.mathWidth; i++){
+          this.$refs[this.rowId+"_"+(i+1)][0].$el.children[0].style.backgroundColor="lightgray";
+        }
+        
+        if(!this.$refs[this.propRandomId]){
+          return
+        }
+
+        this.$refs[this.propRandomId][0].$el.children[0].style.backgroundColor="red";
+      
+      },
+      
+    },
 
     computed: {
     // 算出 getter 関数
