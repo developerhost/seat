@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    
-    
-      <v-col v-for="i in mathWidth"
+      <v-col v-for="i in changeWidth"
       :key="i">
 
       <Cell />
@@ -31,19 +29,20 @@
       items: "",
     }),
 
-  //   computed: {
-  //   // 算出 getter 関数
-  //   reversedMessage: {
-  //     // `this` は vm インスタンスを指します
-  //     get: function () {
-  //       return this.mathWidth;
-  //     },
-  //     // setter 関数
-  //     set: function (newValue) {
-  //       this.mathWidth = newValue;
-  //     },
-  //   },
-  // },
+    computed: {
+    // 算出 getter 関数
+    changeWidth: {
+      // `this` は vm インスタンスを指します
+      get: function () {
+        return Number(this.mathWidth);
+      },
+      // setter 関数
+      set: function (newValue) {
+        this.mathWidth = Number(newValue);
+        console.log("setWidth",this.mathWidth)
+      },
+    },
+  },
 
   // watch
   }

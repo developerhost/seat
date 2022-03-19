@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-row class="row" v-for="i in reversedMessage" :key="i">
+  <v-container class="scroll">
+    <v-row class="row" v-for="i in changeHeight" :key="i">
       <Row :mathWidth="mathWidth" />
     </v-row>
 
@@ -12,6 +12,10 @@
 
       <p>縦</p>
       <v-text-field v-model="mathHeight"> </v-text-field>
+    </v-row>
+
+    <v-row justify="center" class="pt-4">
+      <v-btn depressed color="primary"> 指名 </v-btn>
     </v-row>
   </v-container>
 </template>
@@ -33,7 +37,7 @@ export default {
 
   computed: {
     // 算出 getter 関数
-    reversedMessage: {
+    changeHeight: {
       // `this` は vm インスタンスを指します
       get: function () {
         return Number(this.mathHeight);
@@ -41,27 +45,30 @@ export default {
       // setter 関数
       set: function (newValue) {
         this.mathHeight = Number(newValue);
-        console.log("set",this.mathHeight)
+        console.log("setHeight", this.mathHeight);
       },
     },
   },
-    methods: {
-      getHeight: function() {
-        return Number(this.mathWidth)
-      }
+  methods: {
+    getHeight: function () {
+      return Number(this.mathWidth);
     },
+  },
 
   watch: {
-    mathHeight: function() {
+    mathHeight: function () {
       this.getHeight();
-    }
-    
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 .row .container {
   display: flex;
+}
+.scroll {
+  height: 100vh;
+  overflow: scroll;
 }
 </style>
