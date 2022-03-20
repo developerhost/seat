@@ -1,6 +1,16 @@
 <template>
-  <v-container>
-      <div class="cellBox"></div>
+  <v-container justify="center" class="pa-0 ma-0">
+        <v-card
+          class="px-0 py-2 mx-2"
+          tile
+          outlined
+          elevation="2"
+          height="10vh"
+          widht="10vw"
+          max-height="60"
+          max-width="60"
+        >
+        </v-card>
   </v-container>
 </template>
 

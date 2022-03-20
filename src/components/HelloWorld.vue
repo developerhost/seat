@@ -1,21 +1,52 @@
 <template>
   <v-container class="scroll">
-    <v-row class="row" v-for="i in changeHeight" :key="i">
-      <Row :mathWidth="mathWidth" :rowId="i" :propRandomId="propRandomId"/>
+    <v-row justify="center" class="py-2 px-2">
+        <p class="text-h6 font-weight-bold pt-8">
+          黒板
+        </p>
     </v-row>
 
-    <h2>条件</h2>
+
+    <v-card color="blue darken-2" justify="center">
+      
+    
+    <v-row class="row py-0 px-0" v-for="i in changeHeight" :key="i" color="blue darken-2">
+      <Row :mathWidth="mathWidth" :rowId="i" :propRandomId="propRandomId"/>
+    </v-row>
+    </v-card>
 
     <v-row>
-      <p>横</p>
+        <p class="text-h6 font-weight-bold pt-8 pl-4">
+          条件
+        </p>
+    </v-row>
+
+    <v-row>
+      <p class="pl-2">横</p>
       <v-text-field v-model="mathWidth"> </v-text-field>
 
-      <p>縦</p>
+      <p class="pl-2">縦</p>
       <v-text-field v-model="mathHeight"> </v-text-field>
     </v-row>
 
-    <v-row justify="center" class="pt-4">
+    <v-row justify="center" class="pt-4 pb-8">
       <v-btn depressed color="primary" @click="random"> 指名 </v-btn>
+    </v-row>
+
+    <v-row justify="center" class="pt-8 pb-2">
+      <a href="https://twitter.com/js_manabitai">
+        <p class="text-h6 font-weight-bold text-center">開発者</p>
+      </a>
+    </v-row>
+    <v-row justify="center" class="py-2">
+      <a href="https://twitter.com/second_atom">
+        <p class="text-h6 font-weight-bold text-center">共同開発者</p>
+      </a>
+    </v-row>
+    <v-row justify="center" class="pt-4 pb-2">
+      <a href="https://twitter.com/js_manabitai">
+        <p class="text-h6 font-weight-bold text-center">お問合せ</p>
+      </a>
     </v-row>
   </v-container>
 </template>
@@ -31,8 +62,8 @@ export default {
 
   data: () => ({
     items: "",
-    mathWidth: 4,
-    mathHeight: 4,
+    mathWidth: 6,
+    mathHeight: 6,
     randomId: ""
   }),
 

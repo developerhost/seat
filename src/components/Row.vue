@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-      <v-col v-for="i in changeWidth"
+  <v-container class="py-2">
+      <v-col class="pa-0" justify="center" v-for="i in changeWidth"
       :key="i">
 
       <Cell :id="rowId + '_' + i" :ref="rowId+'_'+i"/>
