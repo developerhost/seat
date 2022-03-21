@@ -32,22 +32,6 @@
     <v-row justify="center" class="pt-4 pb-8">
       <v-btn depressed color="primary" @click="random"> 指名 </v-btn>
     </v-row>
-
-    <v-row justify="center" class="pt-8 pb-2">
-      <a href="https://twitter.com/js_manabitai">
-        <p class="text-h6 font-weight-bold text-center">開発者</p>
-      </a>
-    </v-row>
-    <v-row justify="center" class="py-2">
-      <a href="https://twitter.com/second_atom">
-        <p class="text-h6 font-weight-bold text-center">共同開発者</p>
-      </a>
-    </v-row>
-    <v-row justify="center" class="pt-4 pb-2">
-      <a href="https://twitter.com/js_manabitai">
-        <p class="text-h6 font-weight-bold text-center">お問合せ</p>
-      </a>
-    </v-row>
   </v-container>
 </template>
 

@@ -5,10 +5,7 @@
           tile
           outlined
           elevation="2"
-          height="10vh"
-          widht="10vw"
-          max-height="60"
-          max-width="60"
+          height="5vh"
         >
         </v-card>
   </v-container>
@@ -22,6 +19,18 @@ export default {
     // rowId: 0,
     // colId: 0
   }),
+  computed: {
+      height () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return 50
+          case 'sm': return 60
+          case 'md': return 70
+          case 'lg': return 80
+          case 'xl': return 90
+        }
+        return true
+      },
+    },
 };
 </script>
 
