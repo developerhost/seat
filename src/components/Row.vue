@@ -38,7 +38,7 @@
     }),
 
     methods: {
-      propRandomId: function () {
+      selectRandomId: function () {
 
         setInterval(function () {
           for(let i = 0; i < this.mathWidth; i++){
@@ -57,8 +57,8 @@
       },
     },
 
-    mounted() {
-      this.propRandomId()
+    watch() {
+      this.selectRandomId()
     //   propRandomId: function () {
         
     //     for(let i = 0; i < this.mathWidth; i++){
