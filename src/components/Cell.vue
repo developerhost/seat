@@ -7,6 +7,7 @@
           elevation="2"
           height="5vh"
         >
+        {{rowId}}
         </v-card>
   </v-container>
 </template>
@@ -14,6 +15,13 @@
 <script>
 export default {
   name: "Cell",
+
+  props: {
+      rowId: {
+        type: Number,
+        required: true
+      },
+  },
 
   data: () => ({
     // rowId: 0,

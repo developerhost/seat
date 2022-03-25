@@ -2,9 +2,7 @@
   <v-container class="py-2">
       <v-col class="pa-0" justify="center" v-for="i in changeWidth"
       :key="i">
-
       <Cell :id="rowId + '_' + i" :ref="rowId+'_'+i">
-        {{rowId+"_"+i}}
       </Cell>
       </v-col>
       
@@ -39,22 +37,47 @@
       items: "",
     }),
 
-    watch: {
+    methods: {
       propRandomId: function () {
-        
-        for(let i = 0; i < this.mathWidth; i++){
-          this.$refs[this.rowId+"_"+(i+1)][0].$el.children[0].style.backgroundColor="lightgray";
-        }
-        
-        if(!this.$refs[this.propRandomId]){
-          return
-        }
 
-        this.$refs[this.propRandomId][0].$el.children[0].style.backgroundColor="red";
+        setInterval(function () {
+          for(let i = 0; i < this.mathWidth; i++){
+            this.$refs[this.rowId+"_"+(i+1)][0].$el.children[0].style.backgroundColor="lightgray";
+          }
+          
+          if(!this.$refs[this.propRandomId]){
+            return
+          }
+  
+          this.$refs[this.propRandomId][0].$el.children[0].style.backgroundColor="red";
+
+        }, 1000);
+        
       
       },
-      
     },
+
+    mounted() {
+      this.propRandomId()
+    //   propRandomId: function () {
+        
+    //     for(let i = 0; i < this.mathWidth; i++){
+    //       this.$refs[this.rowId+"_"+(i+1)][0].$el.children[0].style.backgroundColor="lightgray";
+    //     }
+        
+    //     if(!this.$refs[this.propRandomId]){
+    //       return
+    //     }
+
+    //     this.$refs[this.propRandomId][0].$el.children[0].style.backgroundColor="red";
+      
+    //   },
+    },
+
+      beforeDestroy () {
+        console.log('clearInterval')
+        clearInterval(this.propRandomId())
+      },
 
     computed: {
     // 算出 getter 関数

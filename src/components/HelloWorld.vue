@@ -22,11 +22,18 @@
     </v-row>
 
     <v-row>
-      <p class="pl-2">横</p>
-      <v-text-field v-model="mathWidth"> </v-text-field>
+      <v-col>
+      <p class="pl-2 pb-0 mb-0">横</p>
+      <v-text-field class="pt-0 mt-0" v-model="mathWidth"> </v-text-field>
 
-      <p class="pl-2">縦</p>
-      <v-text-field v-model="mathHeight"> </v-text-field>
+      </v-col>
+
+      <v-col>
+
+      <p class="pl-2 pb-0 mb-0">縦</p>
+      <v-text-field class="pt-0 mt-0" v-model="mathHeight"> </v-text-field>
+      </v-col>
+
     </v-row>
 
     <v-row justify="center" class="pt-4 pb-8">
