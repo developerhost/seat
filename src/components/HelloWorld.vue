@@ -88,10 +88,18 @@ export default {
     },
 
     random: function () {
+      const TIME_LIMIT = 1;
+      let time = 0;
+      let setIntervalId = setInterval(() => {
       const rowRandom = Math.floor( Math.random() * this.mathHeight + 1 );
       const colRandom = Math.floor( Math.random() * this.mathWidth + 1 );
       const idRandom = rowRandom + "_" + colRandom;
       this.randomId = idRandom
+      time += 0.05;
+        if (parseInt(time) === TIME_LIMIT) {
+            clearInterval(setIntervalId);
+        }
+      }, 50);
     }
   },
 

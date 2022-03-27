@@ -7,7 +7,10 @@
           elevation="2"
           height="5vh"
         >
-        {{rowId}}
+        <div style="display:flex; justify-content: center; align-items: center;">
+          {{rowCellId}}_{{colCellId}}
+
+        </div>
         </v-card>
   </v-container>
 </template>
@@ -17,7 +20,11 @@ export default {
   name: "Cell",
 
   props: {
-      rowId: {
+      rowCellId: {
+        type: Number,
+        required: true
+      },
+      colCellId: {
         type: Number,
         required: true
       },
@@ -38,6 +45,11 @@ export default {
         }
         return true
       },
+      displayRowId () {
+        console.log(this.rowCellId);
+        
+        return this.rowCellId;
+      }
     },
 };
 </script>

@@ -2,7 +2,7 @@
   <v-container class="py-2">
       <v-col class="pa-0" justify="center" v-for="i in changeWidth"
       :key="i">
-      <Cell :id="rowId + '_' + i" :ref="rowId+'_'+i">
+      <Cell :id="rowId + '_' + i" :ref="rowId+'_'+i" :rowCellId="rowId" :colCellId="i">
       </Cell>
       </v-col>
       
@@ -39,8 +39,6 @@
 
     methods: {
       selectRandomId: function () {
-
-        setInterval(function () {
           for(let i = 0; i < this.mathWidth; i++){
             this.$refs[this.rowId+"_"+(i+1)][0].$el.children[0].style.backgroundColor="lightgray";
           }
@@ -50,34 +48,8 @@
           }
   
           this.$refs[this.propRandomId][0].$el.children[0].style.backgroundColor="red";
-
-        }, 1000);
-        
-      
       },
     },
-
-    watch() {
-      this.selectRandomId()
-    //   propRandomId: function () {
-        
-    //     for(let i = 0; i < this.mathWidth; i++){
-    //       this.$refs[this.rowId+"_"+(i+1)][0].$el.children[0].style.backgroundColor="lightgray";
-    //     }
-        
-    //     if(!this.$refs[this.propRandomId]){
-    //       return
-    //     }
-
-    //     this.$refs[this.propRandomId][0].$el.children[0].style.backgroundColor="red";
-      
-    //   },
-    },
-
-      beforeDestroy () {
-        console.log('clearInterval')
-        clearInterval(this.propRandomId())
-      },
 
     computed: {
     // 算出 getter 関数
@@ -94,6 +66,10 @@
     },
   },
 
-  // watch
+  watch: {
+    propRandomId: function() {
+      this.selectRandomId();
+    }
+  }
   }
 </script>
